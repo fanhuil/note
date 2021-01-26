@@ -35,7 +35,7 @@ systemctl start php73-php-fpm1
 设置 PHP
 查找安装包：
 
-```java
+```shell
 [root@xxx etc]# rpm -qa | grep 'php'
 php73-php-cli-7.3.6-1.el7.remi.x86_64
 php73-php-mbstring-7.3.6-1.el7.remi.x86_64
@@ -58,7 +58,7 @@ php73-php-pecl-geoip-1.1.1-6.el7.remi.x86_641234567891011121314151617
 
 找到：php73-php-fpm-7.3.6-1.el7.remi.x86_64安装位置
 
-```java
+```shell
 [root@xxx etc]# rpm -ql php73-php-fpm-7.3.6-1.el7.remi.x86_64
 /etc/logrotate.d/php73-php-fpm
 /etc/opt/remi/php73/php-fpm.conf

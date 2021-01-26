@@ -38,7 +38,7 @@ Linux中的所有数据都被保存在文件中，所有的文件被分配到不
 
 查看当前目录下的文件和目录可以使用 **ls** 命令，例如：
 
-```
+```shell
 $ls
 
 bin        hosts  lib     res.03
@@ -49,7 +49,7 @@ docs       hw3    res.02  work
 
 通过 **ls** 命令的 **-l** 选项，你可以获取更多文件信息，例如：
 
-```
+```shell
 $ls -l
 total 1962188
 
@@ -106,13 +106,13 @@ $
 
 例如
 
-```
+```shell
 $ls ch*.doc
 ```
 
 可以显示所有以 ch 开头，以 .doc 结尾的文件：
 
-```
+```shell
 ch01-1.doc   ch010.doc  ch02.doc    ch03-2.doc
 ch04-1.doc   ch040.doc  ch05.doc    ch06-2.doc
 ch01-2.doc ch02-1.doc c
@@ -120,7 +120,7 @@ ch01-2.doc ch02-1.doc c
 
 这里，* 匹配任意一个字符。如果你希望显示所有以 .doc 结尾的文件，可以使用
 
-```
+```shell
 $ls *.doc。
 ```
 
@@ -136,7 +136,7 @@ $ls *.doc。
 
 查看隐藏文件需要使用 **ls** 命令的 **-a** 选项：
 
-```
+```shell
 $ ls -a
 
 .         .profile       docs     lib     test_results
@@ -155,20 +155,20 @@ $
 
 在Linux中，可以使用 vi 编辑器创建一个文本文件，例如：
 
-```
+```shell
 $ vi filename
 ```
 
 上面的命令会创建文件 filename 并打开，按下 i 键即可进入编辑模式，你可以向文件中写入内容。例如：
 
-```
+```shell
 This is Linux file....I created it for the first time.....
 I'm going to save this content in this file.
 ```
 
 完成编辑后，可以按 esc 键退出编辑模式，也可以按组合键 Shift + ZZ 完全退出文件。这样，就完成了文件的创建。
 
-```
+```shell
 $ vi filename
 $
 ```
@@ -179,7 +179,7 @@ vi 编辑器可以用来编辑文件。由于篇幅限制，这里仅作简单�
 
 如下可以打开一个名为 filename 的文件：
 
-```
+```shell
 $ vi filename
 ```
 
@@ -197,7 +197,7 @@ $ vi filename
 
 可以使用 **cat** 命令来查看文件内容，下面是一个简单的例子：
 
-```
+```shell
 $ cat filename
 This is Linux file....I created it for the first time.....
 I'm going to save this content in this file.
@@ -206,7 +206,7 @@ $
 
 可以通过 **cat** 命令的 **-b** 选项来显示行号，例如：
 
-```
+```shell
 $ cat -b filename
 1   This is Linux file....I created it for the first time.....
 2   I'm going to save this content in this file.
@@ -217,7 +217,7 @@ $
 
 可以使用 **wc** 命令来统计当前文件的行数、单词数和字符数，下面是一个简单的例子：
 
-```
+```shell
 $ wc filename
 2  19 103 filename
 $
@@ -233,7 +233,7 @@ $
 
 也可以一次查看多个文件的内容，例如：
 
-```
+```shell
 $ wc filename1 filename2 filename3
 ```
 
@@ -241,13 +241,13 @@ $ wc filename1 filename2 filename3
 
 可以使用 **cp** 命令来复制文件。**cp** 命令的基本语法如下：
 
-```
+```shell
 $ cp source_file destination_file
 ```
 
 下面的例子将会复制 filename 文件：
 
-```
+```shell
 $ cp filename copyfile
 $
 ```
@@ -258,13 +258,13 @@ $
 
 重命名文件可以使用 **mv** 命令，语法为：
 
-```
+```shell
 $ mv old_file new_file
 ```
 
 下面的例子将会把 filename 文件重命名为 newfile：
 
-```
+```shell
 $ mv filename newfile
 $
 ```
@@ -277,7 +277,7 @@ $
 
 **rm**命令可以删除文件，语法为：
 
-```
+```shell
 $ rm filename
 ```
 
@@ -292,7 +292,7 @@ $
 
 你也可以一次删除多个文件：
 
-```
+```shell
 $ rm filename1 filename2 filename3
 $
 ```
@@ -323,7 +323,7 @@ $
 
 - **/home**：用户的主目录，在 Linux 中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的，如上图中的 alice、bob 和 eve。
 
-- **/lib**：lib 是 Library(库) 的缩写这个目录里存放着系统最基本的动态连接共享库，其作用类似于 Windows 里的 DLL 文件。几乎所有的应用程序都需要用到这些共享库。
+- **/lib**：lib 是 Library(库) 的缩写，这个目录里存放着系统最基本的动态连接共享库，其作用类似于 Windows 里的 DLL 文件。几乎所有的应用程序都需要用到这些共享库。
 
 - **/lost+found**：这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。
 
@@ -400,7 +400,7 @@ Linux 的目录有清晰的层次结构，/ 代表根目录，所有的目录都
 
 如果一个路径以 / 开头，就称为绝对路径；它表示当前文件与根目录的关系。举例如下：
 
-```
+```shell
 /etc/passwd
 /users/sjones/chem/notes
 /dev/rdsk/Os3
@@ -408,14 +408,14 @@ Linux 的目录有清晰的层次结构，/ 代表根目录，所有的目录都
 
 不以 / 开头的路径称为相对路径，它表示文件与当前目录的关系。例如：
 
-```
+```shell
 chem/notes
 personal/res
 ```
 
 获取当前所在的目录可以使用 pwd 命令：
 
-```
+```shell
 $pwd
 /user0/home/amrood
 
@@ -424,13 +424,13 @@ $
 
 查看目录中的文件可以使用 **ls** 命令：
 
-```
+```shell
 $ls dirname
 ```
 
 下面的例子将遍历 /usr/local 目录下的文件：
 
-```
+```shell
 $ls /usr/local
 
 X11       bin          gimp       jikes       sbin
@@ -442,20 +442,20 @@ atalk     etc          info       man         ami
 
 可以使用 **mkdir** 命令来创建目录，语法为：
 
-```
+```shell
 $mkdir dirname
 ```
 
 dirname 可以为绝对路径，也可以为相对路径。例如
 
-```
+```shell
 $mkdir mydir
 $
 ```
 
 会在当前目录下创建 mydir 目录。又如
 
-```
+```shell
 $mkdir /tmp/test-dir
 $
 ```
@@ -464,7 +464,7 @@ $
 
 也可以使用 **mkdir** 命令同时创建多个目录，例如
 
-```
+```shell
 $mkdir docs pub
 $
 ```
@@ -475,7 +475,7 @@ $
 
 使用 **mkdir** 命令创建目录时，如果上级目录不存在，就会报错。下面的例子中，mkdir 会输出错误信息：
 
-```
+```shell
 $mkdir /tmp/amrood/test
 mkdir: Failed to make directory "/tmp/amrood/test";
 No such file or directory
@@ -484,7 +484,7 @@ $
 
 为 **mkdir** 命令增加 **-p** 选项，可以一级一级创建所需要的目录，即使上级目录不存在也不会报错。例如
 
-```
+```shell
 $mkdir -p /tmp/amrood/test
 $
 ```
@@ -495,7 +495,7 @@ $
 
 可以使用 **rmdir** 命令来删除目录，例如：
 
-```
+```shell
 $rmdir dirname
 $
 ```
@@ -515,20 +515,20 @@ $
 
 可以使用 **cd** 命令来改变当前所在目录，进入任何有权限的目录，语法为：
 
-```
+```shell
 $cd dirname
 ```
 
 dirname 为路径，可以为相对路径，也可以为绝对路径。例如
 
-```
+```shell
 $cd /usr/local/bin
 $
 ```
 
 可以进入 /usr/local/bin 目录。可以使用相对路径从这个目录进入 /usr/home/amrood 目录：
 
-```
+```shell
 $cd ../../home/amrood
 $
 ```
@@ -543,7 +543,7 @@ $mv olddir newdir
 
 下面的例子将会把 mydir 目录重命名为 yourdir 目录：
 
-```
+```shell
 $mv mydir yourdir
 $
 ```
@@ -554,7 +554,7 @@ $
 
 **ls** 命令的 **-a** 选项可以查看所有文件，包括隐藏文件；**-l** 选项可以查看文件的所有信息，共有7列。例如：
 
-```
+```shell
 $ls -la
 drwxrwxr-x    4    teacher   class   2048  Jul 16 17.56 .
 drwxr-xr-x    60   root              1536  Jul 13 14:18 ..
@@ -577,7 +577,7 @@ $
 
 使用 **ls -l** 命令可以查看与文件权限相关的信息：
 
-```
+```shell
 $ls -l /home/amrood
 -rwxr-xr--  1 amrood   users 1024  Nov 2 00:10  myfile
 drwxr-xr--- 1 amrood   users 1024  Nov 2 00:10  mydir
@@ -624,7 +624,7 @@ drwxr-xr--- 1 amrood   users 1024  Nov 2 00:10  mydir
 
 下面的例子将会修改 testfile 文件的权限：
 
-```
+```shell
 $ls -l testfile
 -rwxrwxr--  1 amrood   users 1024  Nov 2 00:10  testfile
 $chmod o+wx testfile
@@ -640,7 +640,7 @@ $ls -l testfile
 
 也可以同时使用多个符号：
 
-```
+```shell
 $chmod o+wx,u-x,g=rx testfile
 $ls -l testfile
 -rw-r-xrwx  1 amrood   users 1024  Nov 2 00:10  testfile
@@ -664,7 +664,7 @@ $ls -l testfile
 
 下面的例子，首先使用 **ls -1** 命令查看 testfile 文件的权限，然后使用 **chmod** 命令更改权限：
 
-```
+```shell
 $ls -l testfile
 -rwxrwxr--  1 amrood   users 1024  Nov 2 00:10  testfile
 $ chmod 755 testfile
@@ -690,13 +690,13 @@ $ls -l testfile
 
 **chown** 命令用来更改文件所有者，其语法如下：
 
-```
+```shell
 $ chown user filelist
 ```
 
 user 可以是用户名或用户ID，例如
 
-```
+```shell
 $ chown amrood testfile
 $
 ```
@@ -707,13 +707,13 @@ $
 
 **chgrp** 命令用来改变文件所属群组，其语法为：
 
-```
+```shell
 $ chgrp group filelist
 ```
 
 group可以是群组名或群组ID，例如
 
-```
+```shell
 $ chgrp special testfile
 $
 ```
@@ -732,7 +732,7 @@ SGID也是一样。一般情况下程序会根据你的组权限来运行，但�
 
 如果程序设置了SUID位，就会在表示文件所有者可执行权限的位置上出现's'字母；同样，如果设置了SGID，就会在表示文件群组可执行权限的位置上出现's'字母。如下所示：
 
-```
+```shell
 $ ls -l /usr/bin/passwd
 -r-sr-xr-x  1   root   bin  19031 Feb 7 13:47  /usr/bin/passwd*
 $
@@ -746,7 +746,7 @@ $
 
 为一个目录设置SUID和SGID位可以使用下面的命令：
 
-```
+```shell
 $ chmod ug+s dirname
 $ ls -l
 drwsr-sr-x 2 root root  4096 Jun 19 06:45 dirname
@@ -763,7 +763,7 @@ $
 
 下面的例子，我们将为变量 TEST 赋值，然后使用 **echo** 命令输出：
 
-```
+```shell
 $TEST="Linux Programming"
 $echo $TEST
 Linux Programming
@@ -779,7 +779,7 @@ Linux Programming
 
 读取完上面两个文件，Shell就会出现 $ 命令提示符：
 
-```
+```shell
 $
 ```
 
@@ -806,7 +806,7 @@ $
 
 对于没有使用过的终端，可能会比较生疏，不习惯命令的输出样式，交互起来略显吃力。所以，一般用户会将终端设置成下面的类型：
 
-```
+```shell
 $TERM=vt100
 $
 ```
@@ -819,14 +819,14 @@ vt100 是 virtual terminate 100 的缩写。虚拟终端是一种假的终端，
 
 一般情况下PATH变量的设置如下：
 
-```
+```shell
 $PATH=/bin:/usr/bin
 $
 ```
 
 多个路径使用冒号(:)分隔。如果用户输入的命令在PATH设置的路径下没有找到，就会报错，例如：
 
-```
+```shell
 $hello
 hello: not found
 $
@@ -838,7 +838,7 @@ PS1变量用来保存命令提示符，可以随意修改，如果你不习惯�
 
 例如，把命令提示符设置成'=>'：
 
-```
+```shell
 $PS1='=>'
 =>
 =>
@@ -847,7 +847,7 @@ $PS1='=>'
 
 也可以将提示信息设置成当前目录，例如：
 
-```
+```shell
 =>PS1="[\u@\h \w]\$"
 [root@ip-72-167-112-17 /var/www/tutorialspoint/Linux]$
 [root@ip-72-167-112-17 /var/www/tutorialspoint/Linux]$
@@ -876,7 +876,7 @@ $PS1='=>'
 
 下面的例子使用默认的第二命令提示符：
 
-```
+```shell
 $ echo "this is a
 > test"
 this is a
@@ -886,7 +886,7 @@ $
 
 下面的例子通过PS2变量改变提示符：
 
-```
+```shell
 $ PS2="secondary prompt->"
 $ echo "this is a
 secondary prompt->test"
@@ -915,7 +915,7 @@ $
 
 下面的例子中使用了部分环境变量：
 
-```
+```shell
 $ echo $HOME
 /root
 ]$ echo $DISPLAY
@@ -966,7 +966,7 @@ pr option(s) filename(s)
 
 首先查看文件内容：
 
-```
+```shell
 $cat food
 Sweet Tooth
 Bangkok Wok
@@ -982,7 +982,7 @@ $
 
 然后使用 **pr** 命令打印：
 
-```
+```shell
 $pr -2 -h "Restaurants" food
 Nov  7  9:58 1997  Restaurants   Page 1
 
@@ -1000,7 +1000,7 @@ $
 
 打印机一般由系统管理员来设置，下面的例子使用默认的打印机打印food文件：
 
-```
+```shell
 $lp food
 request id is laserp-525  (1 file)
 $
@@ -1020,7 +1020,7 @@ $
 
 例如，使用 **lpstat -o** 命令查看打印机中所有等待打印的文件，包括你自己的：
 
-```
+```shell
 $lpstat -o
 laserp-573  john  128865  Nov 7  11:27  on laserp
 laserp-574  grace  82744  Nov 7  11:28
@@ -1032,7 +1032,7 @@ lpstat -o 命令按照打印顺序输出队列中的文件。
 
 **lpq** 命令显示的信息与 lpstat -o 稍有差异：
 
-```
+```shell
 $lpq
 laserp is ready and printing
 Rank   Owner      Job  Files                  Total Size
@@ -1050,7 +1050,7 @@ $
 
 例如，通过ID取消打印请求：
 
-```
+```shell
 $cancel laserp-575
 request "laserp-575" cancelled
 $
@@ -1058,7 +1058,7 @@ $
 
 如果希望取消正在打印的文件，那么可以不指定ID，仅仅指定打印机名称即可：
 
-```
+```shell
 $cancel laserp
 request "laserp-573" cancelled
 $
@@ -1069,7 +1069,7 @@ lprm 命令用来取消当前用户的正在等待打印的文件，使用任务
 
 例如，取消575号打印任务：
 
-```
+```shell
 $lprm 575
 dfA575diamond dequeued
 cfA575diamond dequeued
@@ -1097,7 +1097,7 @@ $mail [-s subject] [-c cc-addr] [-b bcc-addr] to-addr
 
 例如，向admin@yahoo.com发送邮件：
 
-```
+```shell
 $mail -s "Test Message" admin@yahoo.com
 Hello everyone, 
 this is Linux tutorial and url is http://see.xidian.edu.cn/cpp/linux/.
@@ -1108,7 +1108,7 @@ Cc:
 
 也可以通过重定向操作符 < 来发送文件：
 
-```
+```shell
 $mail -s "Report 05/06/07" admin@yahoo.com < demo.txt
 ```
 
@@ -1116,7 +1116,7 @@ $mail -s "Report 05/06/07" admin@yahoo.com < demo.txt
 
 接收邮件不需要任何参数：
 
-```
+```shell
 $mail
 no email
 ```
@@ -1137,7 +1137,7 @@ no email
 
 grep 是一个强大的文本搜索工具，可以使用正则表达式，并返回匹配的行，语法为：
 
-```
+```shell
 $grep pattern file(s)
 ```
 
@@ -1151,7 +1151,7 @@ grep 命令最简单的使用就是检索包含固定字符的文本。
 
 例如，在管道中使用 grep 命令，只允许包含指定字符的行输出到显示器：
 
-```
+```shell
 $ls -l | grep "Aug"
 -rw-rw-rw-   1 john  doc     11008 Aug  6 14:10 ch02
 -rw-rw-rw-   1 john  doc      8515 Aug  6 15:30 ch07
@@ -1175,7 +1175,7 @@ grep 命令有很多选项：
 
 使用 -i 选项进行不区分大小写的匹配：
 
-```
+```shell
 $ls -l | grep -i "carol.*aug"
 -rw-rw-r--   1 carol doc      1605 Aug 23 07:35 macros
 $
@@ -1187,7 +1187,7 @@ sort 命令在 Linux 中非常有用，它将文件中的各行按字母或数�
 
 例如，对 foot 文件的各行进行排序：
 
-```
+```shell
 $sort food
 Afghani Cuisine
 Bangkok Wok
@@ -1212,7 +1212,7 @@ $
 
 下面的例子通过管道将 ls、grep 和 sort 命令连起来使用，过滤包含“Aug”的行，并按照文件大小排序：
 
-```
+```shell
 $ls -l | grep "Aug" | sort +4n
 -rw-rw-r--  1 carol doc      1605 Aug 23 07:35 macros
 -rw-rw-r--  1 john  doc      2488 Aug 15 10:51 intro
@@ -1229,7 +1229,7 @@ $
 
 例如，通过管道，使用more命令显示目录中的文件：
 
-```
+```shell
 $ls -l | grep "Aug" | sort +4n | more
 -rw-rw-r--  1 carol doc      1605 Aug 23 07:35 macros
 -rw-rw-r--  1 john  doc      2488 Aug 15 10:51 intro
@@ -1268,7 +1268,7 @@ $ls -l | grep "Aug" | sort +4n | more
 
 我们可以看到前台进程的运行过程。例如，使用 ls 命令来遍历当前目录下的文件：
 
-```
+```shell
 $ls ch*.doc
 ch01-1.doc   ch010.doc  ch02.doc    ch03-2.doc
 ch04-1.doc   ch040.doc  ch05.doc    ch06-2.doc
@@ -1287,7 +1287,7 @@ ch01-2.doc   ch02-1.doc
 
 创建后台进程最简单的方式就是在命令的末尾加 &，例如：
 
-```
+```shell
 $ls ch*.doc &
 ch01-1.doc   ch010.doc  ch02.doc    ch03-2.doc
 ch04-1.doc   ch040.doc  ch05.doc    ch06-2.doc
@@ -1300,7 +1300,7 @@ ch01-2.doc   ch02-1.doc
 
 可以使用 **ps** 命令查看进程的运行状态，包括后台进程，例如：
 
-```
+```shell
 $ps
 PID       TTY      TIME        CMD
 18358     ttyp3    00:00:00    sh
@@ -1310,7 +1310,7 @@ PID       TTY      TIME        CMD
 
 还可以结合 **-f** 选项查看更多信息，f 是 full 的缩写，例如：
 
-```
+```shell
 $ps -f
 UID      PID  PPID C STIME    TTY   TIME CMD
 amrood   6738 3662 0 10:23:03 pts/6 0:00 first_one
@@ -1348,7 +1348,7 @@ ps 命令还有其他一些选项：
 
 如果进程运行在后台，那么首先要通过 **ps** 命令来获取进程ID，然后使用 **kill** 命令“杀死”进程，例如：
 
-```
+```shell
 $ps -f
 UID      PID  PPID C STIME    TTY   TIME CMD
 amrood   6738 3662 0 10:23:03 pts/6 0:00 first_one
@@ -1363,7 +1363,7 @@ Terminated
 
 如果进程忽略 kill 命令，那么可以通过 kill -9 来结束：
 
-```
+```shell
 $kill -9 6738
 Terminated
 ```
@@ -1396,7 +1396,7 @@ top 命令是一个很有用的工具，它可以动态显示正在运行的进�
 
 top 命令可以显示进程的很多信息，包括物理内存、虚拟内存、CPU使用率、平均负载以及繁忙的进程等。例如：
 
-```
+```shell
 $top
 ```
 
@@ -1406,14 +1406,14 @@ $top
 ## 任务和进程
 
 任务(task)是最抽象的，是一个一般性的术语，指由软件完成的一个活动。一个任务既可以是一个进程，也可以是多个进程。简而言之，它指的是一系列共同达到某一目的的操作。例如，读取数据并将数据放入内存中。这个任务可以由一个进程来实现，也可以由多个进程来实现。  每个任务都有一个数字表示的任务号。
- 
+
 进程(process)常常被定义为程序的执行。可以把一个进程看成是一个独立的程序，在内存中有其完备的数据空间和代码空间。一个进程所拥有的数据和变量只属于它自己。
 
 **jobs** 命令可以用来查看系统中正在运行的任务，包括后台运行的任务。该命令可以显示任务号及其对应的进程ID。一个任务可以对应于一个或者多个进程号。
 
 jobs 命令的 -l 选项可以查看当前任务包含的进程ID：
 
-```
+```shell
 $jobs -l
 [1] + 1903 running                 ls ch*.doc &
 $
@@ -1425,7 +1425,7 @@ $
 
 **fg** 命令可以将后台任务调到前台，语法为：
 
-```
+```shell
 $fg %jobnumber
 ```
 
@@ -1433,7 +1433,7 @@ jobnumber 是通过 jobs 命令获取的后台任务的的序号，注意不是p
 
 **bg** 命令可以将后台暂停的任务，调到前台继续运行，语法为：
 
-```
+```shell
 $bg %jobnumber
 ```
 
@@ -1453,7 +1453,7 @@ ping 命令会向网络上的主机发送应答请求，根据响应信息可以
 
 ping 命令的语法：
 
-```
+```shell
 $ping hostname or ip-address
 ```
 
@@ -1461,7 +1461,7 @@ $ping hostname or ip-address
 
 例如，检测是否可以连接到谷歌的主机：
 
-```
+```shell
 $ping google.com
 PING google.com (74.125.67.100) 56(84) bytes of data.
 64 bytes from 74.125.67.100: icmp_seq=1 ttl=54 time=39.4 ms
@@ -1477,7 +1477,7 @@ $
 
 如果主机没有响应，可以看到类似下面的信息：
 
-```
+```shell
 $ping giiiiiigle.com
 ping: unknown host giiiiigle.com
 $
@@ -1496,7 +1496,7 @@ ftp 工具有自己的命令（类似Linux命令），可以：
 
 ftp 命令的用法如下：
 
-```
+```shell
 $ftp hostname or ip-address
 ```
 
@@ -1522,7 +1522,7 @@ $ftp hostname or ip-address
 
 ftp 工具使用举例：
 
-```
+```shell
 $ftp amrood.com
 Connected to amrood.com.
 220 amrood.com FTP server (Ver 4.9 Thu Sep 2 20:35:07 CDT 2009)
@@ -1571,7 +1571,7 @@ Telnet 工具可以让我们连接并登录到远程计算机。
 
 一旦连接到了远程计算机，就可以在上面进行各种操作了，例如：
 
-```
+```shell
 C:>telnet amrood.com
 Trying...
 Connected to amrood.com.
@@ -1603,7 +1603,7 @@ finger 可以让我们查看本地主机或远程主机上的用户信息。有�
 
 例如，查看本机在线用户：
 
-```
+```shell
 $ finger
 Login     Name       Tty      Idle  Login Time   Office
 amrood               pts/0          Jun 25 08:03 (62.61.164.115)
@@ -1611,7 +1611,7 @@ amrood               pts/0          Jun 25 08:03 (62.61.164.115)
 
 查看本机指定用户的信息：
 
-```
+```shell
 $ finger amrood
 Login: amrood                           Name: (null)
 Directory: /home/amrood                 Shell: /bin/bash
@@ -1622,7 +1622,7 @@ No Plan.
 
 查看远程主机上的在线用户：
 
-```
+```shell
 $ finger @avtar.com
 Login     Name       Tty      Idle  Login Time   Office
 amrood               pts/0          Jun 25 08:03 (62.61.164.115)
@@ -1630,7 +1630,7 @@ amrood               pts/0          Jun 25 08:03 (62.61.164.115)
 
 查看远程主机上某个用户的信息：
 
-```
+```shell
 $ finger amrood@avtar.com
 Login: amrood                           Name: (null)
 Directory: /home/amrood                 Shell: /bin/bash
@@ -1669,7 +1669,7 @@ Vim 是 **V**i **im**proved 的缩写，是 vi 的改进版。在Linux中，vi �
 
 例如，使用 vi 编辑器创建一个新文件并打开：
 
-```
+```shell
 $vi testfile
 |
 ~
@@ -1733,7 +1733,7 @@ $vi testfile
 
 退出之前，你也可以在 w 命令后面指定一个文件名，将文件另存为新文件，例如：
 
-```
+```shell
 w filename2
 ```
 
@@ -1934,7 +1934,7 @@ set 命令可以对 vi 编辑器进行一些设置。使用 set 命令需要进�
 
 例如，保存文件前，如果希望查看该文件是否存在，那么输入
 
-```
+```sh
 :! ls
 ```
 
@@ -1946,7 +1946,7 @@ set 命令可以对 vi 编辑器进行一些设置。使用 set 命令需要进�
 
 切换到命令模式，再输入 s/ 命令即可对文本进行替换。语法为：
 
-```
+```shell
 :s/search/replace/g
 ```
 
@@ -2052,7 +2052,7 @@ Linux的文件结构是单个的树状结构，根目录是“/”，其他目�
 
 管理磁盘分区时经常会使用 **df** (disk free) 命令，df -k 命令可以用来查看磁盘空间的使用情况（以千字节计），例如：
 
-```
+```shell
 $df -k
 Filesystem      1K-blocks      Used   Available Use% Mounted on
 /dev/vzfs        10485760   7836644     2649116  75% /
@@ -2082,7 +2082,7 @@ du (disk usage) 命令可以用来查看特定目录的空间使用情况。
 
 du 命令会显示每个目录所占用数据块。根据系统的不同，一个数据块可能是 512 字节或 1024 字节。举例如下：
 
-```
+```shell
 $du /etc
 10     /etc/cron.d
 126    /etc/default
@@ -2093,7 +2093,7 @@ $
 
 结合 -h 选项可以让信息显示的更加清晰：
 
-```
+```shell
 $du -h /etc
 5k    /etc/cron.d
 63k   /etc/default
@@ -2114,7 +2114,7 @@ $
 
 查看当前系统所挂载的硬件设备可以使用 mount 命令：
 
-```
+```shell
 $ mount
 /dev/vzfs on / type reiserfs (rw,usrquota,grpquota)
 proc on /proc type proc (rw,nodiratime)
@@ -2126,13 +2126,13 @@ $
 
 也可以通过mount命令来挂载文件系统，语法为：
 
-```
+```shell
 mount -t file_system_type device_to_mount directory_to_mount_to
 ```
 
 例如：
 
-```
+```shell
 $ mount -t iso9660 /dev/cdrom /mnt/cdrom
 ```
 
@@ -2144,7 +2144,7 @@ $ mount -t iso9660 /dev/cdrom /mnt/cdrom
 
 可以通过 umount 命令来卸载文件系统。例如，卸载 cdrom：
 
-```
+```shell
 $ umount /dev/cdrom
 ```
 
@@ -2222,7 +2222,7 @@ inode也会消耗硬盘空间，所以硬盘格式化的时候，操作系统自
 
 查看每个inode节点的大小，可以用如下命令：
 
-```
+```shell
 sudo dumpe2fs -h /dev/hda | grep "Inode size"
 ```
 
@@ -2236,7 +2236,7 @@ sudo dumpe2fs -h /dev/hda | grep "Inode size"
 
 使用ls -i命令，可以看到文件名对应的inode号码，例如：
 
-```
+```shell
 ls -i demo.txt
 ```
 
@@ -2248,19 +2248,19 @@ Linux系统中，目录（directory）也是一种文件。打开目录，实际
 
 ls命令只列出目录文件中的所有文件名：
 
-```
+```shell
 ls /etc
 ```
 
 ls -i命令列出整个目录文件，即文件名和inode号码：
 
-```
+```shell
 ls -i /etc
 ```
 
 如果要查看文件的详细信息，就必须根据inode号码，访问inode节点，读取信息。ls -l命令列出文件的详细信息。
 
-```
+```shell
 ls -l /etc
 ```
 
@@ -2272,7 +2272,7 @@ ls -l /etc
 
 ln命令可以创建硬链接，语法为：
 
-```
+```shell
 ln source_file target_file
 ```
 
@@ -2288,7 +2288,7 @@ ln source_file target_file
 
 ln -s命令可以创建软链接，语法为：
 
-```
+```shell
 ln source_file target_file
 ```
 
@@ -2318,7 +2318,7 @@ Linux支持用户组，用户组就是具有相同特征的用户的集合。一
 
 来看一下/etc/passwd文件的结构：
 
-```
+```shell
 $cat /etc/passwd
 root:x:0:0:Superuser:/:
 daemon:x:1:1:System daemons:/etc:
@@ -2384,7 +2384,7 @@ groupadd [-g gid [-o]] [-r] [-f] groupname
 
 如果不指定选项，系统将使用默认值。例如创建一个 developers 用户组：
 
-```
+```shell
 $ groupadd developers
 ```
 
@@ -2392,19 +2392,19 @@ $ groupadd developers
 
 groupmod命令可以用来修改用户组，语法为：
 
-```
+```shell
 $ groupmod -n new_modified_group_name old_group_name
 ```
 
 例如，将用户组 developers_2 重命名为 developer：
 
-```
+```shell
 $ groupmod -n developer developer_2
 ```
 
 将developer用户组的ID改为545：
 
-```
+```shell
 $ groupmod -g 545 developer
 ```
 
@@ -2412,7 +2412,7 @@ $ groupmod -g 545 developer
 
 通过groupdel命令可以删除用户组。例如，删除developer组：
 
-```
+```shell
 $ groupdel developer
 ```
 
@@ -2422,7 +2422,7 @@ groupdel 仅仅删除用户组，并不删除与之相关的文件，这些文�
 
 添加用户可以使用useradd命令，语法为：
 
-```
+```shell
 useradd -d homedir -g groupname -m -s shell -u userid accountname
 ```
 
@@ -2442,7 +2442,7 @@ useradd -d homedir -g groupname -m -s shell -u userid accountname
 
 下面的例子将会添加用户 mcmohd，并设置主目录为 /home/mcmohd，用户组为 developers，默认 Shell 为 Korn Shell：
 
-```
+```shell
 $ useradd -d /home/mcmohd -g developers -s /bin/ksh mcmohd
 ```
 
@@ -2450,7 +2450,7 @@ $ useradd -d /home/mcmohd -g developers -s /bin/ksh mcmohd
 
 用户被创建后，可以使用 passwd 命令来设置密码，例如：
 
-```
+```shell
 $ passwd mcmohd20
 Changing password for user mcmohd20.
 New Linux password:******
@@ -2466,7 +2466,7 @@ usermod 命令可以修改现有用户的信息。usermod 命令的选项和 use
 
 下面的例子将用户 mcmohd 的用户名修改为 mcmohd20，主目录修改为 /home/mcmohd20：
 
-```
+```shell
 $ usermod -d /home/mcmohd20 -m -l mcmohd mcmohd20
 ```
 
@@ -2476,7 +2476,7 @@ userdel 命令可以用来删除现有用户。userdel 是一个危险的命令�
 
 userdel 命令仅有一个选项 -r，用来删除用户主目录和本地邮件。例如，删除用户 mcmohd20：
 
-```
+```shell
 $ userdel -r mcmohd20
 ```
 
@@ -2655,7 +2655,7 @@ logger [-i] [-f filename] [-p priority] [-t tag] [message...]
 
 例如，将ping命令的结果写入日志：
 
-```
+```shell
 $ ping 192.168.0.1 | logger -it logger_test -p local3.notice&
 $ tail -f /var/log/userlog
 Oct 6 12:48:43 kevein logger_test[22484]: PING 192.168.0.1 (192.168.0.1) 56(84) bytes of data.
@@ -2700,7 +2700,7 @@ logrotate 的主要配置文件是 /etc/logrotate.conf，/etc/logrotate.d 目录
 
 可以通过 cat 命令查看它的内容：
 
-```
+```shell
 $cat /etc/logrotate.conf
 # see "man logrotate" for details  //可以查看帮助文档
 # rotate log files weekly
@@ -2771,7 +2771,7 @@ logrotate 也可以作为命令直接运行来修改配置文件。
 
 通过 kill -l 命令可以查看系统支持的所有信号：
 
-```
+```shell
 $ kill -l
 1) SIGHUP       2) SIGINT       3) SIGQUIT      4) SIGILL
 5) SIGTRAP      6) SIGABRT      7) SIGBUS       8) SIGFPE
@@ -2801,13 +2801,13 @@ $ kill -l
 
 还可以通过 kill 命令发送信号，语法为：
 
-```
+```shell
 $ kill -signal pid
 ```
 
 signal为要发送的信号，可以是信号名称或数字；pid为接收信号的进程ID。例如：
 
-```
+```shell
 $ kill -1 1001
 ```
 
@@ -2815,7 +2815,7 @@ $ kill -1 1001
 
 又如，强制杀死ID为1001的进程：
 
-```
+```shell
 $ kill -9 1001
 ```
 
@@ -2829,7 +2829,7 @@ $ kill -9 1001
 
 通过 trap 命令就可以捕获信号，语法为：
 
-```
+```shell
 $ trap commands signals
 ```
 
@@ -2845,7 +2845,7 @@ commands为Linux系统命令或用户自定义命令；signals为要捕获的信
 
 脚本捕获到终止信号后一个常见的动作就是清理临时文件。例如：
 
-```
+```shell
 $ trap "rm -f $WORKDIR/work1$$ $WORKDIR/dataout$$; exit" 2
 ```
 
@@ -2855,7 +2855,7 @@ $ trap "rm -f $WORKDIR/work1$$ $WORKDIR/dataout$$; exit" 2
 
 修改上面的脚本，使接收到 SIGHUP 时进行同样的操作：
 
-```
+```shell
 $ trap "rm $WORKDIR/work1$$ $WORKDIR/dataout$$; exit" 1 2
 ```
 
@@ -2868,7 +2868,7 @@ $ trap "rm $WORKDIR/work1$$ $WORKDIR/dataout$$; exit" 1 2
 
 上面的脚本，执行到 trap 命令时就会替换 WORKDIR 和 $$ 的值。如果希望接收到 SIGHUP 或 SIGINT 信号时再替换其值，那么可以将命令放在单引号内，例如：
 
-```
+```sh
 $ trap 'rm $WORKDIR/work1$$ $WORKDIR/dataout$$; exit' 1 2
 ```
 
@@ -2876,19 +2876,19 @@ $ trap 'rm $WORKDIR/work1$$ $WORKDIR/dataout$$; exit' 1 2
 
 如果 trap 命令的 commands 为空，将会忽略接收到的信号，即不做任何处理，也不执行默认动作。例如：
 
-```
+```shell
 $ trap '' 2
 ```
 
 也可以同时忽略多个信号：
 
-```
+```shell
 $ trap '' 1 2 3 15
 ```
 
 注意：必须被引号包围，不能写成下面的形式：
 
-```
+```shell
 $ trap  2
 ```
 
@@ -2896,8 +2896,255 @@ $ trap  2
 
 如果希望改变信号的默认动作后再次恢复默认动作，那么省略 trap 命令的 commands 即可，例如：
 
-```
+```shell
 $ trap 1 2
 ```
 
 将恢复SIGHUP 和 SIGINT 信号的默认动作。
+
+
+
+# Linux常用指令详解
+
+## netstat命令
+
+Linux netstat 命令用于显示网络状态。
+
+利用 netstat 指令可让你得知整个 Linux 系统的网络情况。
+
+### 语法
+
+```shell
+netstat [-acCeFghilMnNoprstuvVwx][-A<网络类型>][--ip]
+```
+
+**参数说明**：
+
+- -a或--all 显示所有连线中的Socket。
+- -A<网络类型>或--<网络类型> 列出该网络类型连线中的相关地址。
+- -c或--continuous 持续列出网络状态。
+- -C或--cache 显示路由器配置的快取信息。
+- -e或--extend 显示网络其他相关信息。
+- -F或--fib 显示路由缓存。
+- -g或--groups 显示多重广播功能群组组员名单。
+- -h或--help 在线帮助。
+- -i或--interfaces 显示网络界面信息表单。
+- -l或--listening 显示监控中的服务器的Socket。
+- -M或--masquerade 显示伪装的网络连线。
+- -n或--numeric 直接使用IP地址，而不通过域名服务器。
+- -N或--netlink或--symbolic 显示网络硬件外围设备的符号连接名称。
+- -o或--timers 显示计时器。
+- -p或--programs 显示正在使用Socket的程序识别码和程序名称。
+- -r或--route 显示Routing Table。
+- -s或--statistics 显示网络工作信息统计表。
+- -t或--tcp 显示TCP传输协议的连线状况。
+- -u或--udp 显示UDP传输协议的连线状况。
+- -v或--verbose 显示指令执行过程。
+- -V或--version 显示版本信息。
+- -w或--raw 显示RAW传输协议的连线状况。
+- -x或--unix 此参数的效果和指定"-A unix"参数相同。
+- --ip或--inet 此参数的效果和指定"-A inet"参数相同。
+
+### 实例
+
+显示详细的网络状况
+
+```shell
+# netstat -a
+```
+
+显示当前户籍UDP连接状况
+
+```shell
+# netstat -nu
+```
+
+显示UDP端口号的使用情况
+
+```shell
+# netstat -apu
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address        Foreign Address       State    PID/Program name  
+udp    0   0 *:32768           *:*                   -          
+udp    0   0 *:nfs            *:*                   -          
+udp    0   0 *:641            *:*                   3006/rpc.statd   
+udp    0   0 192.168.0.3:netbios-ns   *:*                   3537/nmbd      
+udp    0   0 *:netbios-ns        *:*                   3537/nmbd      
+udp    0   0 192.168.0.3:netbios-dgm   *:*                   3537/nmbd      
+udp    0   0 *:netbios-dgm        *:*                   3537/nmbd      
+udp    0   0 *:tftp           *:*                   3346/xinetd     
+udp    0   0 *:999            *:*                   3366/rpc.rquotad  
+udp    0   0 *:sunrpc          *:*                   2986/portmap    
+udp    0   0 *:ipp            *:*                   6938/cupsd     
+udp    0   0 *:1022           *:*                   3392/rpc.mountd   
+udp    0   0 *:638            *:*                   3006/rpc.statd
+```
+
+显示网卡列表
+
+```shell
+# netstat -i
+Kernel Interface table
+Iface    MTU Met  RX-OK RX-ERR RX-DRP RX-OVR  TX-OK TX-ERR TX-DRP TX-OVR Flg
+eth0    1500  0  181864   0   0   0  141278   0   0   0 BMRU
+lo    16436  0   3362   0   0   0   3362   0   0   0 LRU
+```
+
+显示组播组的关系
+
+```shell
+# netstat -g
+IPv6/IPv4 Group Memberships
+Interface    RefCnt Group
+--------------- ------ ---------------------
+lo       1   ALL-SYSTEMS.MCAST.NET
+eth0      1   ALL-SYSTEMS.MCAST.NET
+lo       1   ff02::1
+eth0      1   ff02::1:ff0a:b0c
+eth0      1   ff02::1
+```
+
+显示网络统计信息
+
+```shell
+# netstat -s
+Ip:
+  184695 total packets received
+  0 forwarded
+  0 incoming packets discarded
+  184687 incoming packets delivered
+  143917 requests sent out
+  32 outgoing packets dropped
+  30 dropped because of missing route
+Icmp:
+  676 ICMP messages received
+  5 input ICMP message failed.
+  ICMP input histogram:
+    destination unreachable: 44
+    echo requests: 287
+    echo replies: 345
+  304 ICMP messages sent
+  0 ICMP messages failed
+  ICMP output histogram:
+    destination unreachable: 17
+    echo replies: 287
+Tcp:
+  473 active connections openings
+  28 passive connection openings
+  4 failed connection attempts
+  11 connection resets received
+  1 connections established
+  178253 segments received
+  137936 segments send out
+  29 segments retransmited
+  0 bad segments received.
+  336 resets sent
+Udp:
+  5714 packets received
+  8 packets to unknown port received.
+  0 packet receive errors
+  5419 packets sent
+TcpExt:
+  1 resets received for embryonic SYN_RECV sockets
+  ArpFilter: 0
+  12 TCP sockets finished time wait in fast timer
+  572 delayed acks sent
+  3 delayed acks further delayed because of locked socket
+  13766 packets directly queued to recvmsg prequeue.
+  1101482 packets directly received from backlog
+  19599861 packets directly received from prequeue
+  46860 packets header predicted
+  14541 packets header predicted and directly queued to user
+  TCPPureAcks: 12259
+  TCPHPAcks: 9119
+  TCPRenoRecovery: 0
+  TCPSackRecovery: 0
+  TCPSACKReneging: 0
+  TCPFACKReorder: 0
+  TCPSACKReorder: 0
+  TCPRenoReorder: 0
+  TCPTSReorder: 0
+  TCPFullUndo: 0
+  TCPPartialUndo: 0
+  TCPDSACKUndo: 0
+  TCPLossUndo: 0
+  TCPLoss: 0
+  TCPLostRetransmit: 0
+  TCPRenoFailures: 0
+  TCPSackFailures: 0
+  TCPLossFailures: 0
+  TCPFastRetrans: 0
+  TCPForwardRetrans: 0
+  TCPSlowStartRetrans: 0
+  TCPTimeouts: 29
+  TCPRenoRecoveryFail: 0
+  TCPSackRecoveryFail: 0
+  TCPSchedulerFailed: 0
+  TCPRcvCollapsed: 0
+  TCPDSACKOldSent: 0
+  TCPDSACKOfoSent: 0
+  TCPDSACKRecv: 0
+  TCPDSACKOfoRecv: 0
+  TCPAbortOnSyn: 0
+  TCPAbortOnData: 1
+  TCPAbortOnClose: 0
+  TCPAbortOnMemory: 0
+  TCPAbortOnTimeout: 3
+  TCPAbortOnLinger: 0
+  TCPAbortFailed: 3
+  TCPMemoryPressures: 0
+```
+
+显示监听的套接口
+
+```shell
+# netstat -l
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address        Foreign Address       State   
+tcp    0   0 *:32769           *:*             LISTEN   
+tcp    0   0 *:nfs            *:*             LISTEN   
+tcp    0   0 *:644            *:*             LISTEN   
+tcp    0   0 *:1002           *:*             LISTEN   
+tcp    0   0 *:netbios-ssn        *:*             LISTEN   
+tcp    0   0 *:sunrpc          *:*             LISTEN   
+tcp    0   0 vm-dev:ipp         *:*             LISTEN   
+tcp    0   0 *:telnet          *:*             LISTEN   
+tcp    0   0 *:601            *:*             LISTEN   
+tcp    0   0 *:microsoft-ds       *:*             LISTEN   
+tcp    0   0 *:http           *:*             LISTEN   
+tcp    0   0 *:ssh            *:*             LISTEN   
+tcp    0   0 *:https           *:*             LISTEN   
+udp    0   0 *:32768           *:*                   
+udp    0   0 *:nfs            *:*                   
+udp    0   0 *:641            *:*                   
+udp    0   0 192.168.0.3:netbios-ns   *:*                   
+udp    0   0 *:netbios-ns        *:*                   
+udp    0   0 192.168.0.3:netbios-dgm   *:*                   
+udp    0   0 *:netbios-dgm        *:*                   
+udp    0   0 *:tftp           *:*                   
+udp    0   0 *:999            *:*                   
+udp    0   0 *:sunrpc          *:*                   
+udp    0   0 *:ipp            *:*                   
+udp    0   0 *:1022           *:*                   
+udp    0   0 *:638            *:*                   
+Active UNIX domain sockets (only servers)
+Proto RefCnt Flags    Type    State     I-Node Path
+unix 2   [ ACC ]   STREAM   LISTENING   10621 @/tmp/fam-root-
+unix 2   [ ACC ]   STREAM   LISTENING   7096  /var/run/acpid.socket
+unix 2   [ ACC ]   STREAM   LISTENING   9792  /tmp/.gdm_socket
+unix 2   [ ACC ]   STREAM   LISTENING   9927  /tmp/.X11-unix/X0
+unix 2   [ ACC ]   STREAM   LISTENING   10489 /tmp/ssh-lbUnUf4552/agent.4552
+unix 2   [ ACC ]   STREAM   LISTENING   10558 /tmp/ksocket-root/kdeinit__0
+unix 2   [ ACC ]   STREAM   LISTENING   10560 /tmp/ksocket-root/kdeinit-:0
+unix 2   [ ACC ]   STREAM   LISTENING   10570 /tmp/.ICE-unix/dcop4664-1270815442
+unix 2   [ ACC ]   STREAM   LISTENING   10843 /tmp/.ICE-unix/4735
+unix 2   [ ACC ]   STREAM   LISTENING   10591 /tmp/ksocket-root/klauncherah3arc.slave-socket
+unix 2   [ ACC ]   STREAM   LISTENING   7763  /var/run/iiim/.iiimp-unix/9010
+unix 2   [ ACC ]   STREAM   LISTENING   11047 /tmp/orbit-root/linc-1291-0-1e92c8082411
+unix 2   [ ACC ]   STREAM   LISTENING   11053 /tmp/orbit-root/linc-128e-0-dc070659cbb3
+unix 2   [ ACC ]   STREAM   LISTENING   8020  /var/run/dbus/system_bus_socket
+unix 2   [ ACC ]   STREAM   LISTENING   58927 /tmp/mcop-root/vm-dev-2c28-4beba75f
+unix 2   [ ACC ]   STREAM   LISTENING   7860  /tmp/.font-unix/fs7100
+unix 2   [ ACC ]   STREAM   LISTENING   7658  /dev/gpmctl
+unix 2   [ ACC ]   STREAM   LISTENING   10498 @/tmp/dbus-s2MLJGO5Ci
+```
