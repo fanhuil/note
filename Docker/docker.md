@@ -10,25 +10,11 @@ docker镜像好比一个模板，可以通过模板来创建容器服务，镜�
 
 **容器（container）**:
 
-Docker 利用容器技术，独立运行一个或者一组应用，通过镜像来创建；
-
-启动，停止，删除基本命令；
-
-目前就可以把这个容器理解为就是一个建议的linux系统。
+Docker 利用容器技术，独立运行一个或者一组应用，通过镜像来创建；启动，停止，删除基本命令；目前就可以把这个容器理解为就是一个建议的linux系统。
 
 **仓库（repository）**:
 
-仓库就是存放镜像的地方；
-
-分为公有和私有；
-
-Docker Hub（默认是国外）；
-
-可配置国内镜像。
-
-
-
-
+仓库就是存放镜像的地方；分为公有和私有；Docker Hub（默认是国外）；可配置国内镜像。
 
 ## Docker安装
 
@@ -38,12 +24,7 @@ Docker Hub（默认是国外）；
 # 系统内核是3.10以上
 [root@hecs-x-medium-2-linux-20200815230644 ~]# uname -r
 3.10.0-1127.18.2.el7.x86_64
-```
 
-```shell
-# 系统版本
-[root@hecs-x-medium-2-linux-20200815230644 ~]# uname -r
-3.10.0-1127.18.2.el7.x86_64
 [root@hecs-x-medium-2-linux-20200815230644 ~]# cat /etc/os-release 
 NAME="CentOS Linux"
 VERSION="7 (Core)"
@@ -61,8 +42,6 @@ CENTOS_MANTISBT_PROJECT_VERSION="7"
 REDHAT_SUPPORT_PRODUCT="centos"
 REDHAT_SUPPORT_PRODUCT_VERSION="7"
 ```
-
-
 
 >安装
 
@@ -129,8 +108,6 @@ Server: Docker Engine - Community
   #docker的默认工作路径/var/lib/docker
 ```
 
-
-
 ## 阿里云镜像加速
 
 ```shell
@@ -146,8 +123,6 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
-
-
 
 ## 底层原理
 
@@ -165,8 +140,6 @@ DockerServer接受到命令，执行Client的命令。
 
 https://docs.docker.com/engine/install/centos/
 
-
-
 ## 帮助命令
 
 ```shell
@@ -174,8 +147,6 @@ docker version # 显示docker的版本信息
 docker info # 显示docker的系统信息，包括镜像和容器
 docker command --help # 帮助命令
 ```
-
-
 
 ## 镜像命令
 
@@ -207,8 +178,6 @@ docker pull
 ```shell
 docker rmi
 ```
-
-
 
 ## 容器命令
 
@@ -246,8 +215,6 @@ docker restart 容器id
 docker stop 容器id
 docker kill 容器id
 ```
-
-
 
 ## 其它常用命令
 
@@ -295,8 +262,6 @@ docker cp 容器id:容器内路径 目的的主机路径
 docker history 镜像id
 ```
 
-
-
 ## 小实践
 
 部署**Nginx**
@@ -306,8 +271,6 @@ docker history 镜像id
 # docker pull
 # docker run
 ```
-
-
 
 ## 可视化
 
@@ -329,13 +292,9 @@ docker run -d -p 8088:9000\
 
 所有的应用，直接打包docker镜像。
 
-
-
 ## Docker镜像加载原理
 
 >UnionFS（联合文件系统）
-
-
 
 
 
@@ -343,11 +302,7 @@ docker run -d -p 8088:9000\
 
 
 
-
-
 ## 分层理解
-
-
 
 
 
@@ -365,8 +320,6 @@ Docker容器中产生的数据，同步到本地。
 
 目录的挂载，将容器内的目录，挂载到Linux中。
 
-
-
 ## 使用数据卷
 
 > 方式一：直接使用命令来挂载  -v
@@ -375,15 +328,7 @@ Docker容器中产生的数据，同步到本地。
 docker run -v 主机目录:容器内目录
 ```
 
-
-
 ## 具名挂载和匿名挂载
-
-
-
-
-
-
 
 
 
