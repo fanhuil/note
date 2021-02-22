@@ -64,7 +64,7 @@ REDHAT_SUPPORT_PRODUCT_VERSION="7"
   # 4、安装docker相关的，docker-ce社区 docker-ee 企业版
   sudo yum install docker-ce docker-ce-cli containerd.io
 
-  # 更新yum软件包索引
+  # 更新yum软件包索引(centos没有fast选项)
   yum makecache fast
  
   # 5、启动docker
