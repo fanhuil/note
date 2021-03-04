@@ -72,7 +72,7 @@ class Ioc
         $this->binding[$abstract]['concrete'] = function ($ioc) use ($concrete) {
             return $ioc->build($concrete);
         };
-
+		
     }
 
     public function make($abstract)
