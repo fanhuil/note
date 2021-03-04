@@ -1134,6 +1134,15 @@ http {
         location / {	# 位置
             root   html;	# 代码的主文件配置
             index  index.html index.htm;	# 服务端默认返回给用户的文件
+            
+            #伪静态
+            if (!-e $request_filename) {
+            	###一级目录下
+            	rewrite ^/(.*)$ /index.php/$1 last;
+            	###域名下的二级目录
+            	#rewrite ^/目录名/(.*)$ /目录名/index.php/$1 last;
+    		} 
+            
         }
 
         #error_page  404              /404.html;
