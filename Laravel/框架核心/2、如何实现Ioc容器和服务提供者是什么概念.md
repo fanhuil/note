@@ -153,3 +153,13 @@ class CacheServiceProvider{
 具体服务提供者 register 方法是什么时候执行的，我们到讲 laravel 生命周期的时候再详细说。
 
 好了我们这个章节的内容就到这里。
+
+
+
+
+
+
+
+Laravel中容器共有15个方法，简单分类了下:
+
+![img](2%E3%80%81%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0Ioc%E5%AE%B9%E5%99%A8%E5%92%8C%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85%E6%98%AF%E4%BB%80%E4%B9%88%E6%A6%82%E5%BF%B5/1797787-d65f75f86bd0131b.png)
