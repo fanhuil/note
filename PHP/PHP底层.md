@@ -1,0 +1,1 @@
+# CGI和PHP-CGI、FastCGI和PHP-FPM
