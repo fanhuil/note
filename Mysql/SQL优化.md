@@ -393,8 +393,9 @@ drop index index_name on tb_name
 	同步前设置：
 		允许从计算机远程连接：GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'Fhl@0905360000' WITH GRANT OPTION;
 			      FLUSH PRIVILEGES;
-	                                       	 
-	
+
+
+​	
 	主机操作：
 		mysql.ini配置：
 			server-id = 1
@@ -457,12 +458,14 @@ drop index index_name on tb_name
     
     KEY：类似于按hash分区，区别在于key分区值支持计算一列或多列，切mysql服务器提供器自身的哈希函数。
             必须有一列或多列包含整数值
-    
-    
+
+
+​    
     查看是否支持分区：
     	show variables like '%partition%'
-    
-    
+
+
+​    
     其它注意事项：
     
     1、最大分区数目不能超过1024，一般建议对单表的分区输不要超过150个
@@ -484,8 +487,9 @@ drop index index_name on tb_name
     9、要注意选择分区的成本，每插入一行数据都需要按照表达式筛选插入的分区
     
     10、分区字段尽量不要可以为null
-    
-    
+
+
+​    
 
 
 
