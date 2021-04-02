@@ -657,7 +657,7 @@ Configuration summary
 │   ├── fastcgi_params.default
 │   ├── koi-utf
 │   ├── koi-win
-│   ├── mime.types
+│   ├── mime.types 类型文件
 │   ├── mime.types.default
 │   ├── nginx.conf
 │   ├── nginx.conf.default
