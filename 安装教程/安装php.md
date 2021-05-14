@@ -32,7 +32,7 @@ systemctl enable php73-php-fpm
 systemctl start php73-php-fpm1
 ```
 
-设置 PHP
+
 查找安装包：
 
 ```shell

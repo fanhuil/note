@@ -1,5 +1,7 @@
 # MySQL常见的集中存储引擎
 
+
+
 # 一、MySQL的体系结构
 
 ![img](MySQL%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/img.136.la&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg)
@@ -31,6 +33,8 @@
 
 数据存储层，主要是将数据存储在文件系统之上，斌完成与存储引擎的交互。与其它数据库相比，MySQL有点与众不同，它的架构可以在多种不同场景中应用并发挥良好作用。主要体现在存储引擎上，插件式的存储引擎架构，将查询处理和其它的系统任务以及数据的存储提取分离。这种架构可以根据业务需求和实际需要选择合适的存储引擎。
 
+
+
 # 二、存储引擎
 
 ## 2.1、概述
@@ -44,6 +48,8 @@ MySQL5.7支持的存储引擎包含：InnoDB、MyISAM、BDB、MEMORY、MERGE、E
 ```mysql
 show variables like '%default_storage_engine%'
 ```
+
+
 
 ## 2.2、各种常用存储引擎特性
 
@@ -64,6 +70,8 @@ show variables like '%default_storage_engine%'
 | 批量插入速度 |         低          |   高   |   高   |  高   |  高  |
 |   支持外键   |        支持         |        |        |       |      |
 
+
+
 ## 2.3、MySIAM存储引擎
 
 MyISAM是mysql5.5之前的默认存储引擎，MyISAM既不支持事务，也不支持外键，每个MyISAM在磁盘上存储成三个文件，其文件名都和表名相同，但拓展名分别是：
@@ -79,6 +87,8 @@ MyISAM的表还支持3种不同的存储格式
 - 静态表
 - 动态表
 - 压缩表
+
+
 
 ## 2.4、InnoDB存储引擎
 
@@ -120,8 +130,6 @@ create table ity_innodb(
     CONSTRAINT `fk_city_country` FOREIGN KEY(country_id) PREFERENCES country_innodb(country_id) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
-
-
 
 
 
