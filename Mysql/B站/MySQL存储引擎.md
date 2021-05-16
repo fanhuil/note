@@ -1,4 +1,4 @@
-# MySQL常见的集中存储引擎
+# 6MySQL常见的集中存储引擎
 
 
 
@@ -114,6 +114,7 @@ InnoDB是MySQL5.5之后的默认存储引擎，提供了具有提交、回滚和
 - SET NULL：表示父表在更新或者删除的时候，子表的对应字段被SET NULL
 
 ```mysql
+-- 如下两张表，子表（city_innodb）的country_id为外键，关联主表(country_innodb)de country_id字段，并且设置了外键之间的级联关系
 create table country_innodb(
 	country_id int NOT NULL AUTO_INCREMENT,
     country_name varchar(100) NOT NULL,
@@ -121,7 +122,7 @@ create table country_innodb(
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-create table ity_innodb(
+create table city_innodb(
 	city_id int NOT NULL AUTO_INCREMENT,
     city_name varchar(50) NOT NULL,
     country_id int  NOT NULL,
@@ -133,11 +134,7 @@ create table ity_innodb(
 
 
 
-
-
-
-
-
+针对上面创建的两个表，子表的外键指定是ON DELETE RESTRICT ON UPDATE 方式的，那么在主表删除记录的时候，如果子表有对应记录，则不允许删除，主表在更新记录时，如果子表有对应记录，则子表对应更新
 
 
 
