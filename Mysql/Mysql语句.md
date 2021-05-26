@@ -33,8 +33,19 @@ mysqld --skip-networking
 mysqld --default-storage-engine=name
 
 -- 查看系统变量
-SHOW VARIABLES [LIKE 匹配的模式];
+SHOW VARIABLES [LIKE 匹配的模式]
 
+-- 查看当前MySQL中支持的字符集
+SHOW (CHARACTER SET|CHARSET) [LIKE 匹配的模式]
+
+-- 查看MySQL中支持的比较规则的命名
+SHOW COLLATION SHOW COLLATION [LIKE 匹配的模式]
+
+-- 查看表的统计信息
+SHOW TABLE STATUS LIKE `table_name`;
+
+-- 查看优化器⽣成执⾏计划的整个过程开关
+SHOW VARIABLES LIKE 'optimizer_trace';
 ```
 
 

@@ -1310,7 +1310,64 @@ rm -rf /etc/init.d/nginx
 
 
 
-# Nginx日志
+# Nginx自查指令
+
+```bash
+nginx -t
+```
+
+
+
+# Nginx日志管理
+
+Nginx有非常灵活的日志记录牧师，每个级别的配置key有独立的访问日志。日志格式通过log_format命令定义格式。
+
+1、log_format定义日志格式语法
+
+```bash
+# 配置语法：包括：error.log access.log
+Syntax：log_foramt name [escape=default|json] string ...;
+Default：log_format combined "...";
+Context：http
+```
+
+2、默认Nginx定义语法格式如下
+
+```bash
+log_format main '$remote_addr - $remote_user [$time_local] "$request" '
+                '$status $body_bytes_sent "$http_referer" '
+                '"$http_user_agent" "$http_x_forwarded_for"'
+
+access_log /var/log/nginx/access.log main
+```
+
+3、Nginx日志格式允许包括内置变量
+
+```bash
+$remote_addr            # 记录客户端IP地址
+$remote_user            # 记录客户端用户名
+$time_local             # 记录通用的本地时间
+$time_iso8601           # 记录ISO8601标准格式下的本地时间  
+$request                # 记录请求的方法以及请求的http协议
+$status                 # 记录请求状态码（用于定位错误信息）
+$body_bytes_sent        # 发送给客户端的资源字节数，不包括响应头的大小 
+$byte_sent              # 发送给客户端的总字节数 
+$msec                   # 日志写入时间，单位为秒，精度是毫秒
+$http_referer           # 记录从哪个页面链接访问过来的
+$http_user_agent        # 记录客户端浏览器相关信息
+$http_x_forwarded_for   # 记录客户端IP地址
+$request_length         # 请求的长度（包括请求行，请求头和请求正文）
+$request_time			# 请求花费的时间，单位为秒，精度毫秒
+# 注：如果Nginx位于负载均衡器，nginx反向代理之后，web服务器无法直接获取到客户端真实的IP地址。
+# $remote_addr获取的是反向代理的的IP地址。方向代理服务器在转发请求的http头信息中，
+# 增加X-Forwaeded-For信息，用来记录客户端IP地址和客户端请求的服务器地址。
+```
+
+4、access_log日志 配置语法
+
+```bash
+
+```
 
 
 
