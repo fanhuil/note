@@ -12,7 +12,7 @@
 >
 > **存储层**:存储数据
 
-
+12962.25+9
 
 # 相关SQL
 
@@ -396,37 +396,37 @@ drop index index_name on tb_name
 
 
 ​	
-	主机操作：
-		mysql.ini配置：
-			server-id = 1
-			log-bin= 配置二进制日志文件的路径
-			log-error = 配置的错误记录文件路径
-			binlog-ignore-db = 指定忽略的数据库不进行同步
-			binlog-do-db = 指定同步的数据库
-			授权从数据库：
-		GRANT REPLICATION slave,reload,super ON *.* TO 'root'@'39.98.140.205' IDENTIFIED BY 'Fhl@0905360000';
-		flush privileges;
-	查看主数据库状态(每次同步前观察最新状态)：
-		show master status
-		File Position 
-		
-		从机操作：
-		my.cnf配置：
-			server-id = 2
-			log-bin= 配置二进制日志文件的路径
-			replicate-do-db = 指定主数据库
-		授权主数据库链接：
-			CHANGE MASTER TO
-			MASTER_HOST = '192.168.1.102',
-			MASTER_USER = 'root',
-			MASTER_PASSWORD = 'root',
-			MASTER_PORT = 3306,
-			master_log_file = 'mysql-bin.000002',
-			master_log_pos = 357;
-		开启主从同步：
-			start slave;
-		查看从数据库状态:
-			show slave status \G;
+​	主机操作：
+​		mysql.ini配置：
+​			server-id = 1
+​			log-bin= 配置二进制日志文件的路径
+​			log-error = 配置的错误记录文件路径
+​			binlog-ignore-db = 指定忽略的数据库不进行同步
+​			binlog-do-db = 指定同步的数据库
+​			授权从数据库：
+​		GRANT REPLICATION slave,reload,super ON *.* TO 'root'@'39.98.140.205' IDENTIFIED BY 'Fhl@0905360000';
+​		flush privileges;
+​	查看主数据库状态(每次同步前观察最新状态)：
+​		show master status
+​		File Position 
+​		
+​		从机操作：
+​		my.cnf配置：
+​			server-id = 2
+​			log-bin= 配置二进制日志文件的路径
+​			replicate-do-db = 指定主数据库
+​		授权主数据库链接：
+​			CHANGE MASTER TO
+​			MASTER_HOST = '192.168.1.102',
+​			MASTER_USER = 'root',
+​			MASTER_PASSWORD = 'root',
+​			MASTER_PORT = 3306,
+​			master_log_file = 'mysql-bin.000002',
+​			master_log_pos = 357;
+​		开启主从同步：
+​			start slave;
+​		查看从数据库状态:
+​			show slave status \G;
 
 
 
@@ -461,15 +461,15 @@ drop index index_name on tb_name
 
 
 ​    
-    查看是否支持分区：
-    	show variables like '%partition%'
+​    查看是否支持分区：
+​    	show variables like '%partition%'
 
 
 ​    
-    其它注意事项：
-    
-    1、最大分区数目不能超过1024，一般建议对单表的分区输不要超过150个
-    
+​    其它注意事项：
+​    
+​    1、最大分区数目不能超过1024，一般建议对单表的分区输不要超过150个
+​    
     2、如果含有唯一索引或者主键，则分区列必须包含在所有的唯一索引或者主键在内
     
     3、不支持外键索引

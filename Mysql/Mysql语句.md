@@ -34,7 +34,6 @@ mysqld --default-storage-engine=name
 
 -- 查看系统变量
 SHOW VARIABLES [LIKE 匹配的模式];
-
 ```
 
 
