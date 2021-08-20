@@ -1,24 +1,26 @@
-下载源码压缩包
+# PHP8.0以下
 
-解压压缩包
+## 下载源码压缩包
 
-进入解压后的文件夹
+## 解压压缩包
 
-安装依赖库（或者等编译安装时报错再进行安装）
+## 进入解压后的文件夹
+
+## 安装依赖库（或者等编译安装时报错再进行安装）
 
 ```shell
 yum -y install gcc gcc-c++
 yum -y install libxml2-devel openssl-devel curl-devel libjpeg-devel libpng-devel libicu-devel freetype-devel openldap-devel openldap openldap-devel
 ```
 
- 创建用户组和用户
+##  创建用户组和用户
 
 ```shell
 groupadd php
 useradd -g php php
 ```
 
-配置
+## 配置
 
 ```shell
 ./configure --prefix=/usr/local/php \
@@ -73,7 +75,7 @@ cp -frp /usr/lib64/libldap* /usr/lib/
 
 
 
-编译和安装
+## 编译和安装
 
 ```visual basic
 PHP编译参数的含义
@@ -236,3 +238,78 @@ PHP 选项
 
 
 ![image-20210728140442304](C:\Users\qyx\AppData\Roaming\Typora\typora-user-images\image-20210728140442304.png)
+
+# PHP8.0
+
+## 安装PHP8依赖包
+
+yum -y install autoconf freetype gd libpng libpng-devel libxml2 libxml2-devel zlib curl curl-devel net-snmp-devel libjepg-devel php-ldap openldap-clients freetype-devel gmp-devel libzip libzip-devel sqlite-devel
+
+## 编译PHP8依赖包oniguruma
+
+1、解压
+
+tar -zxvf oniguruma-6.9.4.tar.gz
+
+2、切换目录
+
+cd oniguruma-6.9.4/
+
+3、生成configure
+
+./autogen.sh
+
+4、生成编译配置文件
+
+./configure --prefix=/usr
+
+5、编译配置文件
+
+make && make install
+
+## 编译PHP8主包
+
+1、解压
+
+tar xzf php-8.0.0.tar.gz
+
+2、切换目录
+
+cd php-8.0.0/
+
+3、生成编译配置文件
+
+./configure --prefix-/usr/local/php --with-config-file-path=/usr/local/php/etc --enable-fpm --with-fpm-user=nginx --with-fpm-group=nginx --enable-mysqlnd --with-mysqli --with-pdo-mysql --enable-opcache --with-pcre-jit --enable-gd --with-jpeg --with-freetype --with-gettext --with-curl --with-openssl --enable-sockets --enable-mbstring --enable-xm1 --with-zip --with-zlib --with-snmp --with-mhash --enable-ftp --enable-bcmath --enable-soap --enable-shmop -enable sysvsem --enable-pcntl --with-gmp
+
+4、编译并安装
+
+make && make install
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
