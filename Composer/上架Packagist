@@ -1,5 +1,11 @@
 # 项目
 
+```shell
+composer.json文件中Package Type改为project
+```
+
+## 其余同插件
+
 
 
 # 插件
