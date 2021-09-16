@@ -1,4 +1,4 @@
-# 6Nginx安装
+# Nginx安装
 
 ## yum方式安装
 
@@ -1142,6 +1142,11 @@ http {
             	###域名下的二级目录
             	#rewrite ^/目录名/(.*)$ /目录名/index.php/$1 last;
     		} 
+    		
+    		#laravel5伪静态
+            location / {  
+                try_files $uri $uri/ /index.php$is_args$query_string;  
+            }  
             
         }
 
@@ -1222,6 +1227,8 @@ server{} 标签主要用来响应具体的某一个网站
 location{} 标签主要用于匹配网站具体URL路径
 
 nginx -t 检查配置文件语法
+
+
 ```
 
 
