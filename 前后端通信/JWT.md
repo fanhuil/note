@@ -153,3 +153,6 @@ resp.setHeader("Access-Control-Allow-Headers", "Origin,X-Requested-With, Content
 
 
 
+# lavarel使用JWT
+
+https://learnku.com/laravel/t/27760
