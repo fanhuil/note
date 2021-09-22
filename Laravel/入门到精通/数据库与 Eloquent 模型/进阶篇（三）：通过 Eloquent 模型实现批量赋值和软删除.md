@@ -77,21 +77,133 @@ $post->user_id = 0;
 $post->save();
 ```
 
+#### 更新模型
 
+如果是更新模型类，也可以通过批量赋值的方式实现，只需在获取模型类后使用 `fill` 方法批量填充属性即可：
 
+```php
+$post = Post::findOrFail(11);
+$post->fill($request->all());
+$post->save();
+```
 
+### 软删除
 
+我们在日常开发过程中，删除数据库记录在所难免，但是我们多数时候并不想从数据库中物理删除记录，而只是想从业务角度逻辑删除。
 
+> 注：所谓物理删除就是彻底删除该记录，逻辑删除只是给这条记录打上一个「已删除」的标记，不再出现在查询结果中，但是并没有真正删除这条记录。
 
+#### 实现原理
 
+Eloquent 模型类为我们提供了「软删除」功能的支持。这就意味着，在 Laravel 中，我们不需要编写任何额外代码就可以实现对数据库记录的「软删除」。其底层实现原理是在支持软删除的数据表中添加一个 `deleted_at` 字段，这可以通过数据库迁移来实现。比如我们想要让 `posts` 表支持软删除，需要为其创建一个数据库迁移：
 
+```php
+php artisan make:migration alter_posts_add_deleted_at --table=posts
+```
 
+然后在新生成的迁移文件中编写代码如下：
 
+```php
+<?php
 
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
+class AlterPostsAddDeletedAt extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('posts', function (Blueprint $table) {
+            $table->softDeletes();
+        });
+    }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropColumn('deleted_at');
+        });
+    }
+}
+```
 
+这样，运行 `php artisan migrate` 命令即可在 `posts` 表中新增一个 `deleted_at` 字段。该字段默认值为 `NULL`，表示没有被软删除。如果要在模型类中支持软删除，需要在对应模型类（在本例中是 `Post` 模型）中添加支持软删除的 Trait
 
+```php
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Post extends Model
+{
+    use SoftDeletes;
+
+    protected $guarded = ['user_id'];
+}
+```
+
+`SoftDeletes` Trait 提供了一系列与软删除相关的方法，下面我们会介绍到。
+
+这样我们在模型类上做所有常规查询操作的时候就会过滤掉被软删除的记录（这些常规查询在[上一篇教程](https://laravelacademy.org/post/9699.html#toc-6)中已经给出）。
+
+> 注：你也可以修改这个默认约定的 `deleted_at` 字段，但何必费这个劲呢，除非你是从其它系统迁移过来的，原来的表结构已经存在了，这时候可以通过再模型类中设置静态属性 `DELETED_AT` 来自定义软删除字段。
+
+要软删除一条记录，在对应模型类实例上调用 `delete` 方法即可，底层会自动将数据表的 `deleted_at` 字段设置为当前时间，表示该记录已经被「删除」。
+
+#### 相关方法
+
+要判断一条记录是否被软删除，可以通过 `trashed` 方法：
+
+```php
+$post = Post::findOrFail(32);
+$post->delete();
+if ($post->trashed()) {
+    dump('该记录已删除');
+}
+```
+
+此时再查询 `id=32` 的记录，已经不存在了，报 404 异常。如果想要在查询结果中出现软删除记录，可以通过在查询的时候调用 `withTrashed` 方法实现：
+
+```php
+$post = Post::withTrashed()->find(32);
+```
+
+返回结果和正常查询结果一样：
+
+![img](%E8%BF%9B%E9%98%B6%E7%AF%87%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E9%80%9A%E8%BF%87%20Eloquent%20%E6%A8%A1%E5%9E%8B%E5%AE%9E%E7%8E%B0%E6%89%B9%E9%87%8F%E8%B5%8B%E5%80%BC%E5%92%8C%E8%BD%AF%E5%88%A0%E9%99%A4/b738d0d52d6ba9bd6dc393d0a99ded8e.jpg)
+
+在某些场景下，你可能只需要获取被软删除的记录，这可以通过 `onlyTrashed` 方法来实现：
+
+```php
+$post = Post::onlyTrashed()->where('views', 0)->get();
+```
+
+如果是误删除的话，你可以 `restore` 方法来恢复软删除记录：
+
+```php
+$post->restore();   // 恢复单条记录
+Post::onlyTrashed()->where('views', 0)->restore(); // 恢复多条记录
+```
+
+最后，如果你确实是想物理删除数据表记录，通过 `forceDelete` 方法删除即可：
+
+```php
+$post->forceDelete();
+```
 
 
 
