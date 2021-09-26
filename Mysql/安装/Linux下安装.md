@@ -234,7 +234,7 @@ cmake . \
 ```bash
 make -j2 && make intsall
 选项说明：
--j 代表同事开启多个线程实现同时编译
+-j 代表同时开启多个线程实现同时编译
 ```
 
 > 部分报错处理
@@ -308,4 +308,10 @@ bin/mysql_secure_installation
 chkconfig -add mysql_3307
 chkconfig mysql_3307 on
 ```
+
+
+
+
+
+
 
