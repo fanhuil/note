@@ -82,6 +82,7 @@ Would you like the vendor directory added to your .gitignore [yes]
 
 ## 上传到Packagist
 
-![image-20210831121926559](C:\Users\qyx\AppData\Roaming\Typora\typora-user-images\image-20210831121926559.png)
+![20210831121926559](G:\Knowledge Base\note\PHP\Composer\上架Packagist\20210831121926559.png)
 
 > 填写github地址直接提交
+

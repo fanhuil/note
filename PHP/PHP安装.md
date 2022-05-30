@@ -233,11 +233,7 @@ PHP 选项
 --with-tux=MODULEDIR　　将 PHP 编译为 TUX 模块（仅用于 Linux）。
 ```
 
-
-
-
-
-![image-20210728140442304](C:\Users\qyx\AppData\Roaming\Typora\typora-user-images\image-20210728140442304.png)
+![20210728140442304](G:\Knowledge Base\note\PHP\PHP安装\20210728140442304.png)
 
 # PHP8.0
 

@@ -28,9 +28,11 @@
 
 # IDEA集成maven
 
-![image-20211009151655389](C:\Users\qyx\AppData\Roaming\Typora\typora-user-images\image-20211009151655389.png)
+![20211009151655389](G:\Knowledge Base\note\JAVA\WEB\MAVEN\20211009151655389.png)
 
-![image-20211009151912007](C:\Users\qyx\AppData\Roaming\Typora\typora-user-images\image-20211009151912007.png)
+![20211009151912007](G:\Knowledge Base\note\JAVA\WEB\MAVEN\20211009151912007.png)
+
+
 
 ```bash
 -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Dmaven.wagon.http.ssl.ignore.validity.dates=true
